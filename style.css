@@ -1,0 +1,33 @@
+body{
+    padding: 100px;
+}
+
+h1, h2 {
+    font-family: 'Oswald','Roboto';
+}
+
+.bank-title{
+    text-align: center;
+    color: rgb(70, 68, 68);
+}
+
+.bank-title-2{
+    text-align: center;
+    color: tomato;
+}
+
+.login-box{
+    margin-top: 50px;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 5px 5px 10px gray;
+}
+.btn-style{
+    margin: 5px;
+    border-radius: 12px;
+}
+
+
+#transaction-area{
+    display: none;
+}

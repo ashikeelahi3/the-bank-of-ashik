@@ -2,6 +2,8 @@ body{
     padding: 100px;
 }
 
+/* Login area */
+
 h1, h2 {
     font-family: 'Oswald','Roboto';
 }
@@ -27,7 +29,33 @@ h1, h2 {
     border-radius: 12px;
 }
 
+/* Transaction area */
 
 #transaction-area{
     display: none;
+}
+
+.deposit{
+    background-color:slateblue ;
+}
+.withdraw{
+    background-color: lightsalmon;
+}
+.balance{
+    background-color: orange;
+}
+
+.status{
+    margin: 10px 20px;
+    border-radius: 10px;
+    color: aliceblue;
+    padding: 30px 25px;
+    text-align: center;
+}
+
+.bank-box{
+    margin: 40px 20px 20px 20px;
+    padding: 40px;
+    box-shadow: 5px 5px 10px gray;
+    border-radius: 10px;
 }

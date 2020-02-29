@@ -37,19 +37,19 @@
             <div class="col-md-4">
                 <div class="deposit status">
                     <h5>Deposit</h5>
-                    <h2>$ 00</h2>
+                    <h2>$ <span id="dp-balance">00</span></h2>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="withdraw status">
                     <h5>Withdraw</h5>
-                    <h2>$ 00</h2>
+                    <h2>$ <span id="wd-balance">00</span></h2>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="balance status">
                     <h5>Balance</h5>
-                    <h2>$ 530</h2>
+                    <h2>$ <span id="tot-balance">530</span></h2>
                 </div>
             </div>
         </div>
@@ -59,21 +59,22 @@
                 <div class="bank-box">
                     <h4>Deposit</h4>
                     <br>
-                    <input type="text" placeholder="$ amount you want to deposit" class="form-control">
+                    <input type="text" placeholder="$ amount you want to deposit" class="form-control" id="deposit-amount">
                     <br>
-                    <button class="btn btn-success">Deposit</button>
+                    <button class="btn btn-success" id="deposit">Deposit</button>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="bank-box">
                     <h4>Withdraw</h4>
                     <br>
-                    <input type="text" placeholder="$ amount you want to withdraw" class="form-control">
+                    <input type="text" placeholder="$ amount you want to withdraw" class="form-control" id="withdraw-amount">
                     <br>
-                    <button class="btn btn-success">Withdraw</button>
+                    <button class="btn btn-success" id="withdraw">Withdraw</button>
                 </div>
             </div>
         </div>
+
 
     </div>
 
@@ -96,6 +97,7 @@
 
 
    <script>
+       // Log in button event handler
        const loginBtn = document.getElementById("login");
        loginBtn.addEventListener("click", function(){
            const loginArea = document.getElementById("login-area");
@@ -104,7 +106,58 @@
            const transactionArea = document.getElementById("transaction-area");
            transactionArea.style.display = "block";
 
-       })
+       });
+
+
+        //Total balance
+
+    //     const currentBalance = document.getElementById("tot-balance").innerText;
+    //    const currentBalanceNum = parseFloat(currentBalanceNum);
+
+       //Deposit button event handler
+
+            const depositBtn = document.getElementById("deposit");
+            depositBtn.addEventListener("click", function(){
+            const depositAmount = document.getElementById("deposit-amount").value;
+            const depositNumber = parseFloat(depositAmount)||0;
+
+            const currentDeposit = document.getElementById("dp-balance").innerText;
+            const currentDepositNum = parseFloat(currentDeposit);
+            const totalDeposit = depositNumber + currentDepositNum;
+
+            document.getElementById("dp-balance").innerText = totalDeposit;
+            document.getElementById("deposit-amount").value = "";
+
+            
+             const currentBalance = document.getElementById("tot-balance").innerText;
+             const currentBalanceNum = parseFloat(currentBalance);
+             const totalBalance = currentBalanceNum + depositNumber;
+             document.getElementById("tot-balance").innerText = totalBalance;
+            
+       });
+
+       //Withdraw button event handler
+
+       const withdrawBtn = document.getElementById("withdraw");
+       withdrawBtn.addEventListener("click", function(){
+            const withdrawAmount = document.getElementById("withdraw-amount").value;
+            const withdrawNumber = parseFloat(withdrawAmount)||0;
+
+            const currentWithdraw = document.getElementById("wd-balance").innerText;
+            const currentWithdrawNum = parseFloat(currentWithdraw);
+            const totalWithdraw = withdrawNumber + currentWithdrawNum;
+            
+            document.getElementById("wd-balance").innerText = totalWithdraw;
+            document.getElementById("withdraw-amount").value = "";
+
+            const currentBalance = document.getElementById("tot-balance").innerText;
+            const currentBalanceNum = parseFloat(currentBalance);
+            const totalBalance = currentBalanceNum - withdrawNumber;
+            document.getElementById("tot-balance").innerText = totalBalance;
+       });
+
+ 
+
    </script>
 </body>
 </html>
